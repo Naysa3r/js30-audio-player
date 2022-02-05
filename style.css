@@ -105,6 +105,10 @@ blockquote, q {
   opacity: .75;
 }
 
+.pause {
+  content: url(./assets/svg/pause.png);
+}
+
 .next-song,
 .previous-song {
   position: absolute;
