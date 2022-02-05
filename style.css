@@ -19,6 +19,13 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+a:active,
+a:hover {
+    outline: 0;
+}
+a {
+  text-decoration: none;
+}
 html {
     background: #222;
 }
@@ -217,4 +224,35 @@ blockquote, q {
 
 .progress-bar:focus {
   outline: none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-data-element {
+  color:rgb(255, 230, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+.footer-link-item {
+  color:#FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  filter: invert(87%) sepia(19%) saturate(332%) hue-rotate(335deg) brightness(107%) contrast(96%);
+  background: url(./assets/svg/rs_school_js.svg); 
+  background-size: cover;
+  height: 1.7em;
+  width: 4.7em;
+  align-self: center;
 }

@@ -10,12 +10,22 @@ const nextBtn = document.querySelector('.next-song');
 const prevBtn = document.querySelector('.previous-song');
 const audio = new Audio();
 const timeline = document.querySelector('.progress-bar');
+const thumbnail = document.querySelector('.thumbnail');
+const artist = document.querySelector('.song-artist');
+const title = document.querySelector('.song-title');
+const backgroundImage = document.querySelector('.background-image');
 var valueOfSong = 0;
 
 function playPause(playNum) {
     valueOfSong = timeline.getAttribute("value");
     if (isPlay) {
     audio.src = tracks[playNum];
+    backgroundImage.src = tracksObj[playNum][2];
+    thumbnail.src = tracksObj[playNum][2];
+    thumbnail.style.transform = 'scale(1.15)';
+    artist.textContent = tracksObj[playNum][0];
+    title.textContent = tracksObj[playNum][1];
+
     audio.currentTime = valueOfSong;
     audio.play();
     isPlay = !isPlay;
@@ -23,6 +33,7 @@ function playPause(playNum) {
     }
     else {
         audio.pause();
+        thumbnail.style.transform = 'scale(1)';
         isPlay = !isPlay;
         playPauseBtn.classList.remove('pause');
     }
@@ -35,8 +46,9 @@ function playNext() {
     if(!isPlay) {isPlay = true;}
     playPauseBtn.classList.add('pause');
     playNum++;
+
     if (playNum >= tracks.length) {
-        playNum = tracks.length - 1;
+        playNum = 0;
     }
     playPause(playNum);
 }
@@ -46,10 +58,13 @@ function playPrev() {
     playPauseBtn.classList.add('pause');
     playNum--;
     if (playNum < 0) {
-        playNum = 0;
+        playNum = tracks.length - 1;
     }
     playPause(playNum);
 }
+
+audio.addEventListener("ended", playNext);
+
 playPauseBtn.addEventListener('click', () => { playPause(playNum);});
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
