@@ -15,6 +15,14 @@
                 <div class="container">
                     <div class="box"></div>
                     <img class="thumbnail" src="assets/img/lemonade.png">
+                    <img src="./assets/svg/play.png" onclick="playPause()" class="play-pause">
+                    <img src="./assets/svg/forward.png" onclick="nextSong()" class="next-song">
+                    <img src="./assets/svg/backward.png" onclick="previousSong()" class="previous-song">
+                    <div class="song-artist">Beyonce</div>
+                    <div class="song-title">Don't Hurt Yourself</div>
+                    <input type="range" class="progress-bar" min="0" max="" value="0" onchange="changeProgressBar()">
+                    <div class="currentTime"></div>
+                    <div class="durationTime"></div>
                 </div>
             </div>
         </section>
